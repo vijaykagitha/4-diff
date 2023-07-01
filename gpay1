@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout your source code from version control (e.g., Git)
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                // Build your project using the required build tools (e.g., Maven, Gradle)
+                sh 'mvn clean install' // or any other build command
+            }
+        }
+        
+        stage('Deploy') {
+            steps {
+                // Execute deployment steps (e.g., deploying to a server or cloud platform)
+                sh 'ssh user@server "deploy.sh"' // Replace with your deployment command
+            }
+        }
+    }
+}
